@@ -59,5 +59,27 @@ document.addEventListener('DOMContentLoaded', function () {
         weatherInfo.innerHTML = '<p>Error fetching weather data.</p>'; // Display error message in weatherInfo div
       });
   });
+// Function to get background image based on weather condition
+function getBackgroundImage(weatherCondition) {
+  // Define background images based on weather conditions
+  const backgroundImageUrls = {
+    'clear': 'https://img.freepik.com/free-vector/sun-light-with-clouds-sky-background_1017-38299.jpg?w=1060',
+    'partly cloudy': 'https://images.unsplash.com/photo-1469365556835-3da3db4c253b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'cloudy': 'https://images.unsplash.com/photo-1611928482473-7b27d24eab80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'mist': 'mist.jpg', // This URL should be updated with the actual mist image URL
+    'rain': 'https://images.unsplash.com/photo-1518803194621-27188ba362c9?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'sunny': 'https://images.unsplash.com/photo-1606170034961-ee40e2dbe6bf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'mist' : 'https://images.unsplash.com/photo-1512923927402-a9867a68180e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  };
+
+  // Check if the weather condition is in the background image list
+  if (weatherCondition in backgroundImageUrls) {
+    return backgroundImageUrls[weatherCondition]; // Return corresponding background image URL
+  } else {
+    // Default background image if condition not found
+    return 'https://images.unsplash.com/photo-1592210454359-9043f067919b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+  }
+}
+});
 
   
